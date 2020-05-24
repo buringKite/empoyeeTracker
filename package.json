@@ -1,5 +1,5 @@
 {
-  "name": "SqlTracker",
+  "name": "empoyeeTracker",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,13 +8,20 @@
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buringKite/empoyeeTracker.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buringKite/empoyeeTracker/issues"
+  },
+  "homepage": "https://github.com/buringKite/empoyeeTracker#readme",
   "dependencies": {
     "express": "^4.17.1",
     "inquirer": "^7.1.0",
-    "mysql2": "^2.1.0",
-    "nodemon": "^2.0.4"
+    "mysql2": "^2.1.0"
   }
 }
