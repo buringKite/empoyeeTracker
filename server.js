@@ -39,9 +39,15 @@ const runSearch = async (connection) => {
     case "View all employees":
       await viewEmployees(connection);
       break;
+
     case "add employee":
       await addEmployees(connection);
       break;
+
+    case "View all employee's Department":
+      await viewDepartment(connection);
+      break;
+
     default:
       connection.end();
       break;
@@ -91,72 +97,17 @@ const addEmployees = async (connection) => {
     managerId: data.theirMaster,
   };
 
-  const [rows, field] = await connection.query(sqlQuery, params);
+  const [rows] = await connection.query(sqlQuery, params);
   console.table(rows);
 };
 
-// const addEmployees = async (connection) => {
-//   try {
-//     const sqlQuery = "SELECT * FROM employees";
-//     const [rows, fields] = await connection.query(sqlQuery);
-//     console.table(rows);
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   main();
-// };
-
-// const addEmployees = async (connection) => {
-//   const sqlQuery = "INSERT emplpoyees SET ?";
-//   //set is the quantity and second "?" is price  where is flaor and? is the id and means all or none of the rows
-//   const params = [
-//     { roleId: 8 },
-//     { price: 3.7 },
-//     { flavor: "boofa" },
-//     { id: 4 },
-//   ];
-
-//   const [rows, field] = await connection.query(sqlQuery, params);
-
-//   console.log(rows);
-// };
-
-// function addEmployees() {
-//   inquirer
-//     .prompt([
-//       {
-//         name: "firstName",
-//         type: "input",
-//         message: "first name of jedi",
-//       },
-//       {
-//         name: "lastName",
-//         type: "input",
-//         message: "last name of jedi",
-//       },
-//       {
-//         name: "role",
-//         type: "input",
-//         message: "what is there role in the Jedi order",
-//         choices: ["jedi Knight", "padawan", "jedi master", "Gandmaster"],
-//       },
-//       {
-//         name: "theirMaster",
-//         type: "input",
-//         message: "who trained the jedi",
-//       },
-//     ])
-//     .then((data) => {
-//       const sqlQuery = "INSERT INTO employees SET ?";
-
-//       const params = [
-//         { firstName: data.firstName },
-//         { lastName: data.lastName },
-//         { roleId: data.role },
-//         { managerId: data.theirMaster },
-//       ];
-
-//       const rows = connection.query(sqlQuery, params);
-//       console.table(rows.sql);
-//     });
-// }
+const viewDepartment = async (connection) => {
+  try {
+    const sqlQuery = "SELECT * FROM departments";
+    const [rows, fields] = await connection.query(sqlQuery);
+    console.table(rows);
+  } catch (err) {
+    console.log(err);
+  }
+  main();
+};
